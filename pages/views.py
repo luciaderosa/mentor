@@ -7,10 +7,10 @@ from .models import Testimonial
 
 # Create your views here.
 class IndexView(TemplateView):
-    template_name = 'mentor/index.html'
+    template_name = 'pages/index.html'
 
 class AboutView(TemplateView):
-    template_name = 'mentor/about.html'
+    template_name = 'pages/about.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

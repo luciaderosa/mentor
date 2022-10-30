@@ -4,6 +4,5 @@ from .models import Event
 
 # Create your views here.
 
-class EventListView(ListView):
-    template_name = 'mentor/events.html'
+class EventListView(ListView):    
     model = Event

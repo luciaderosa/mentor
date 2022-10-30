@@ -4,6 +4,5 @@ from .models import Trainer
 
 # Create your views here.
 
-class TrainerListView(ListView):
-     template_name = 'mentor/trainers.html'
+class TrainerListView(ListView):     
      model = Trainer
