@@ -1,12 +1,14 @@
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+
 from .models import Course
 
 # Create your views here.
 
-def courses(request):
-    courses = Course.objects.all()
-    return render(request, 'mentor/courses.html', {'courses': courses})
+class CourseListView(ListView):
+    template_name = 'mentor/courses.html'
+    model = Course
+    
 
-def course_detail(request, course_id):
-    course = Course.objects.get(pk=course_id)
-    return render(request, 'mentor/course-details.html', {'course': course})
+class CourseDetailView(DetailView):
+    template_name = 'mentor/course-details.html'
+    model = Course

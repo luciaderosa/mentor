@@ -3,8 +3,8 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('about', views.about, name='about'),
+    path('', views.IndexView.as_view(), name='index'),
+    path('about', views.AboutView.as_view(), name='about'),
     path('', include('contacts.urls')),
     path('', include('courses.urls')),
     path('', include('trainers.urls')),

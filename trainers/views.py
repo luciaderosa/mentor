@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+
 from .models import Trainer
 
 # Create your views here.
 
-def trainers(request):
-     trainers = Trainer.objects.all()
-     return render(request, 'mentor/trainers.html', {'trainers': trainers})
+class TrainerListView(ListView):
+     template_name = 'mentor/trainers.html'
+     model = Trainer
