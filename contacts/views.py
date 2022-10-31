@@ -9,14 +9,15 @@ def contact(request):
         if contact_form.is_valid():
             # save the form data to model
             contact_form.save()
-            html= "Your message was sent!"
-        else:
-            html= "Verify your data"
+            msg= color_msg('Your message was sent!','success')           
+        else:            
+            msg= color_msg('Verify your data!','danger')    
     else:
-        initial={'name':' ','email':' ','subject':' ','message':' '}
-        html=''
+        initial={'name':'','email':'','subject':'','message':''}
         contact_form=ContactForm(initial=initial)
+        msg= color_msg('','')
             
-    return render(request, 'mentor/contact.html', {'contact_form': contact_form, 'html':html})
+    return render(request, 'mentor/contact.html',{'contact_form': contact_form, 'msg':msg})
 
-    
+def color_msg(text,color):
+    return {'text':text, 'color':color}    
