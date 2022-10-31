@@ -9,4 +9,10 @@ class Contact(models.Model):
     isAnswered=models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name +' - '+self.subject
+        checked=''
+        if self.isAnswered:
+            checked += "\u2705"
+        else:
+            checked += "\u23F2"              
+       
+        return checked + ' ' + self.name +' - '+self.subject
