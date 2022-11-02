@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import FormView
 from .forms import ContactForm
+from django.contrib import messages
 
 # Create your views here.
 # class ContactView(TemplateView):
@@ -15,17 +16,17 @@ class ContactView(FormView):
 
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)
-        msg= self.color_msg('','')
-        return render(request, self.template_name, {'form': form, 'msg':msg})
+        return render(request, self.template_name, {'form': form, 'button': True})
 
     def post(self, request, *args, **kwargs):
+        button = True
         form = self.form_class(request.POST)
         if form.is_valid():
             form.save()
-            msg= self.color_msg('Your message was sent!','success')           
-        else:            
-            msg= self.color_msg('Verify your data!','danger')    
-        return render(request, self.template_name, {'form': form, 'msg':msg})    
+            button= False
+            messages.success(request, "Your message was sent!" )        
+        else:       
+            messages.error(request, "Error. Verify your data")     
+        return render(request, self.template_name, {'form': form, 'button':button})    
 
-    def color_msg(self,text,color):
-        return {'text':text, 'color':color}            
+    
