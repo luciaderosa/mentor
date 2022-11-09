@@ -20,6 +20,10 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include('pages.urls')),
+    path('', include('contacts.urls')),
+    path('', include('courses.urls')),
+    path('', include('trainers.urls')),
+    path('', include('events.urls')),
 ]
 
 if settings.DEBUG:
