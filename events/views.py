@@ -1,6 +1,5 @@
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
-from django.http import HttpResponseRedirect
+from django.views.generic.edit import CreateView, UpdateView
 
 from .models import Event
 from .forms import EventForm
@@ -13,4 +12,9 @@ class EventListView(ListView):
 class EventCreateView(CreateView):
     model = Event
     form_class = EventForm
+
+class EventUpdateView(UpdateView):
+    model = Event
+    form_class = EventForm
+    template_name_suffix = '_update_form'    
 
