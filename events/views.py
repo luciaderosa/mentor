@@ -1,5 +1,6 @@
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 from .models import Event
 from .forms import EventForm
@@ -18,3 +19,6 @@ class EventUpdateView(UpdateView):
     form_class = EventForm
     template_name_suffix = '_update_form'    
 
+class EventDeleteView(DeleteView):
+    model = Event
+    success_url = reverse_lazy('events')
