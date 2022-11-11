@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}New Event{% endblock %}
+{% block content %}  
+<main id="main">
+    <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>New Event</h2>          
+        </div>
+    </div><!-- End Breadcrumbs -->
+    <div class="container mt-2">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-2">
+                {{ form.title.label_tag }}    
+                {{ form.title }}
+            </div>
+            <div class="mb-2">
+                {{ form.text.label_tag }}    
+                {{ form.text }}
+            </div>       
+            <div class="mb-2">
+                {{ form.date.label_tag }}    
+                {{ form.date }}
+            </div>
+            <div class="mb-2">
+                {{ form.image.label_tag }}
+                {{ form.image }}
+            </div>
+                <input type="submit" class="contact-button" value="Save">
+        </form>
+    </div>    
+</main>
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -24,6 +25,10 @@ class Event(models.Model):
         ordering = ["-date"]
 
     # Métodos
+
+    def get_absolute_url(self):
+        return reverse("events")
+    
 
     def __str__(self):
         # Cadena para representar el objeto MyModelName
