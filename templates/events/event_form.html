@@ -8,6 +8,11 @@
         </div>
     </div><!-- End Breadcrumbs -->
     <div class="container mt-2">
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                {{ form.errors }}
+            </div>
+        {% endif %}
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="mb-2">
@@ -26,7 +31,7 @@
                 {{ form.image.label_tag }}
                 {{ form.image }}
             </div>
-                <input type="submit" class="contact-button" value="Save">
+            <input type="submit" class="contact-button" value="Save">
         </form>
     </div>    
 </main>
