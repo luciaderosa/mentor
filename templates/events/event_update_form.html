@@ -10,23 +10,8 @@
     <div class="container mt-2">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="mb-2">
-                {{ form.title.label_tag }}    
-                {{ form.title }}
-            </div>
-            <div class="mb-2">
-                {{ form.text.label_tag }}    
-                {{ form.text }}
-            </div>       
-            <div class="mb-2">
-                {{ form.date.label_tag }}    
-                {{ form.date }}
-            </div>
-            <div class="mb-2">
-                {{ form.image.label_tag }}
-                {{ form.image }}                
-            </div>
-            <img src={{ event.image.url }} width="100" height="60">
+            {% include 'events/_form.html' %}
+            <p>Current Image: {{ event.image.url }} </p>
             <div class="mt-2">
                 <input type="submit" class="contact-button" value="Update">
             </div>    
