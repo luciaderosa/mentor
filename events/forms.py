@@ -11,5 +11,5 @@ class EventForm(forms.ModelForm):
                 'placeholder':'Event Title'}),
                 'text': forms.Textarea(attrs={'class':'form-control','placeholder':'Event Text','rows':5, 'minlength':5}),
                 'date': forms.TextInput(attrs={'class':'form-control','placeholder':'Date','minlength':5, 'type': 'datetime-local'}), 
-                #'image': forms.TextInput(attrs={'class':'form-control','type':'file', 'accept':'image/*'}),           
+                'image': forms.FileInput(attrs={'class':'form-control'}),           
             }
