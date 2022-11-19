@@ -18,9 +18,11 @@
          </div>
       {% endfor %}
     {% endif %}
+    {% if request.user.is_staff %}
     <div class="container mt-5">
       <a href="{% url 'new-event' %}" class="contact-button">New Event</a>
-    </div>  
+    </div>
+    {% endif %} 
     <!-- ======= Events Section ======= -->
     <section id="events" class="events">
       <div class="container" data-aos="fade-up">        
@@ -36,10 +38,12 @@
                 <h5 class="card-title"><a href="">{{ event.title }}</a></h5>
                 <p class="fst-italic text-center">{{ event.date|date:"l, F dS"}} at {{event.date|time:"P"}}</p>
                 <p class="card-text">{{ event.text }}</p>
+                {% if request.user.is_staff %}
                 <div class="d-flex justify-content-end">
                   <a href="{% url 'edit-event' event.id %}" class="card-link"><i class="bi bi-pencil"></i></a> 
                   <a href="{% url 'delete-event' event.id %}" class="card-link"><i class="bi bi-trash" style="color:red;"></i></a>
-                </div>      
+                </div>
+                {% endif %}     
               </div>                      
             </div>                        
           </div>  

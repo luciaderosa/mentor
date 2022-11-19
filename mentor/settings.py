@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "courses",
     "events",
     "trainers",
+    "registration",
 ]
 
 MIDDLEWARE = [
@@ -123,6 +124,10 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+#Auth redirects
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
 
 # Internationalization
